@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+#Saco archivos generados por cmake
+CMakeFiles/
+
+cmake_install.cmake
+
+#Saco cosas que arma VisualStudio
+*.sln
+*.vcxproj
+*.filters

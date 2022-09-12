@@ -24,19 +24,9 @@ std::map<std::string, std::any>  jsonparsetodict(json json_input) {
 
         //numero flotante (no llegue a realizar implementacion del entero, lo siento)
         if (el.value().is_number()) {
-
-
-            //            std::cout << "Numero! " << el.value().get<float>() << std::endl;
-                        //returnjson[key]=value;
             returnjson[key] = el.value().get<float>();
         }
 
-        //array NO ES NECESARIO, JSON FLATTEN SE ENCARGA DE ESO.
-//        else if(el.value().is_array()){
-//            std::cout << "arreglo!" << std::endl;
-//            //returnjson[key]=el.value().get<std::array>();
-//            returnjson[key]=el.value();
-//        }
         //boolean
         else if (el.value().is_boolean()) {
             //            std::cout << "Booleano! " << el.value().get<bool>() <<std::endl;
@@ -64,16 +54,6 @@ std::map<std::string, std::any> jsonparse(std::string json_input) {
 
 
     json data = json::parse(json_input).flatten();
-
-    //INTENTO DE USAR RECURSIVIDAD, ENCONTRE UNA MEJOR OPCION EN FLATTEN, DEJO ACA SOLO PARA MOSTRAR OPCIONES BUSCADAS.
-//    std::string keyi="";
-//    std::map<std::string, std::any> returnjson;
-
-//    for (auto& el : data.items())
-//    {
-//        std::cout <<"key" << el.key() << "value" << el.value()<<"\n";
-//    }
-//    recursivejsonparse(data,returnjson,keyi);
 
     std::map<std::string, std::any> returnjson = jsonparsetodict(data);
 
