@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(PruebaDeCmake VERSION 1.0)
+SET(PROJECT_NAME "PruebaDeCmake")
+
+project(${PROJECT_NAME} VERSION 1.0)
 
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
-add_executable(PruebaDeCmake Source.cpp)
+add_executable(${PROJECT_NAME} Source.cpp)

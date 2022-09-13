@@ -4,13 +4,14 @@
 #include <string>
 #include <any>
 #include <regex>
+#include <algorithm>
 
 
 using json = nlohmann::json;
 using namespace nlohmann::literals;
 
 
-std::map<std::string, std::any>  jsonparsetodict(json json_input) {
+std::map<std::string, std::any>  jsonparsetodict(json const& json_input) {
 
     std::map<std::string, std::any> returnjson;
 
@@ -18,7 +19,8 @@ std::map<std::string, std::any>  jsonparsetodict(json json_input) {
     {
         std::string key = el.key();
         key = key.erase(0, 1);
-        key = std::regex_replace(key, std::regex("/"), ".");
+        std::replace(key.begin(), key.end(), '/', '.');
+        //key = std::regex_replace(key, std::regex("/"), "--");
 
 
 
@@ -50,7 +52,7 @@ std::map<std::string, std::any>  jsonparsetodict(json json_input) {
     return returnjson;
 }
 
-std::map<std::string, std::any> jsonparse(std::string json_input) {
+std::map<std::string, std::any> jsonparse(std::string const& json_input) {
 
 
     json data = json::parse(json_input).flatten();
