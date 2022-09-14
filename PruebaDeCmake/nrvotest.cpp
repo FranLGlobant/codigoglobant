@@ -29,9 +29,9 @@ public:
 
 	void print()
 	{
-		cout << "A: " << first << endl;
-		cout << "B: " << second << endl;
-		cout << "A+B: " << sum << endl;
+		cout << "--A: " << first << endl;
+		cout << "--B: " << second << endl;
+		cout << "--A+B: " << sum << endl;
 
 	}
 
@@ -62,6 +62,11 @@ int main()
 {
 	nrvo_tester res = nrvotest(1, 2);
 	nrvo_tester res2 = copy(res);
+
+	cout << endl << "--Print Res2:" << endl;
+	res2.print();
+	cout << endl;
+
 	return 0;
 
 }
